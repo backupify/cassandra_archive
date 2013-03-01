@@ -1,4 +1,4 @@
-Copyright (c) 2013 Alexander Litvinovsky
+Copyright (c) 2013 Backupify
 
 MIT License
 
