@@ -8,6 +8,12 @@ require 'cassandra_archive'
 
 ::CASSANDRA_CLIENT = Cassandra.new('CassandraArchive_test', %w[localhost:9160])
 
+class Test::Unit::TestCase
+  def setup
+    ::CASSANDRA_CLIENT.clear_keyspace!
+  end
+end
+
 require 'active_record'
 
 ActiveRecord::Base.establish_connection(:adapter => "sqlite3", :database  => ":memory:")
