@@ -35,6 +35,21 @@ The model will be extended with :archived method
       # timestamp shows when record has been archived
     end
 
+You may want to store the data which is not presented as active record attribute, it can be dynamic attribute or something like that. For that purpose you define :cassandra_archive_attributes method where you define the list of attributes you want to archive.
+
+    class Service < ActiveRecord::Base
+      include CassandraArchive
+
+      def cassandra_archive_attributes
+        # all active record attributes will be archived plus :fullname
+        attributes.keys + [:account_name]
+      end
+
+      def account_name
+        # the code here does request to the service in order to get account name
+      end
+    end
+
 ## Running tests
 
 Before you run tests do this in cassandra-cli:
