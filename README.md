@@ -41,7 +41,7 @@ You may want to store the data which is not presented as active record attribute
       include CassandraArchive
 
       def cassandra_archive_attributes
-        # all active record attributes will be archived plus :fullname
+        # all active record attributes will be archived plus :account_name
         attributes.keys + [:account_name]
       end
 

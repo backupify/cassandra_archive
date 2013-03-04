@@ -48,6 +48,19 @@ class CassandraArchiveTest < Test::Unit::TestCase
       assert_equal nil, archived_record['created_at']
     end
 
+    should 'set archived_at attribute' do
+      time = DateTime.current
+      DateTime.stubs(:current).returns(time)
+
+      archived_at = time.to_i.to_s
+
+      record = TestModel.create(:firstname => "firstname", :lastname => "lastname")
+      record.destroy
+
+      archived_record = find_archived_record(@record)
+      assert_equal archived_at, archived_record['archived_at']
+    end
+
     should 'return the number of archived records' do
       assert_equal 1, TestModel.archived.size
 

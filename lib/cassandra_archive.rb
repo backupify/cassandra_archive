@@ -11,8 +11,13 @@ module CassandraArchive
   end
 
   def archive
-    timestamp = Helper.timestamp(DateTime.current)
-    ::CASSANDRA_CLIENT.insert('DeletedRecords', self.class.table_name, {timestamp.to_s => get_archived_attributes})
+    time = DateTime.current
+
+    cassandra_timestamp = Helper.timestamp(time)
+    unix_timestamp = time.to_i.to_s
+
+    cassandra_attributes = archived_attributes.merge('archived_at' => unix_timestamp)
+    ::CASSANDRA_CLIENT.insert('DeletedRecords', self.class.table_name, {cassandra_timestamp.to_s => cassandra_attributes})
   end
 
   def cassandra_archive_attributes
@@ -20,9 +25,7 @@ module CassandraArchive
     attributes.keys
   end
 
-  private
-
-  def get_archived_attributes
+  def archived_attributes
     cassandra_archive_attributes.inject({}) do |hash, attribute|
       value = send(attribute).to_s
       cassandra_encoded_value = Helper.encode_for_cassandra(value)
