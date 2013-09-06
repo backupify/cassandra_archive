@@ -6,6 +6,7 @@
 
 Before you start using library you need to create column family where archived records will be stored
 
+    create keyspace CassandraArchive_test;
     create column family DeletedRecords with column_type='Super' and comparator='UTF8Type' and subcomparator='UTF8Type';
 
 initialize cassandra connection
