@@ -1,13 +1,13 @@
 GIT
-  remote: http://github.com/backupify/active_attr.git
-  revision: 69951a36e62bc348b6d2c86ce50c1251ad709e34
+  remote: https://github.com/backupify/active_attr.git
+  revision: 3188c65e53043a98942d731deee6b1f8ccc9e55c
   specs:
-    active_attr (0.8.2)
-      activemodel (>= 3.0.2, < 4.1)
-      activesupport (>= 3.0.2, < 4.1)
+    active_attr (0.8.4)
+      activemodel (>= 3.0.2, < 4.2)
+      activesupport (>= 3.0.2, < 4.2)
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     activemodel (3.2.14)
       activesupport (= 3.2.14)
@@ -65,3 +65,6 @@ DEPENDENCIES
   mocha
   shoulda
   sqlite3
+
+BUNDLED WITH
+   1.15.3
