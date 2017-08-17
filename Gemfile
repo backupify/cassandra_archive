@@ -1,4 +1,4 @@
-source "http://rubygems.org"
+source "https://rubygems.org"
 
 gem 'activesupport', '~> 3'
 gem 'activemodel', '~> 3'
@@ -6,7 +6,7 @@ gem 'activerecord', '~> 3'
 gem 'exception_helper'
 
 gem "cassandra", :require => 'cassandra/1.2'
-gem 'active_attr', :git => "http://github.com/backupify/active_attr.git"
+gem 'active_attr', :git => "https://github.com/backupify/active_attr.git"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
