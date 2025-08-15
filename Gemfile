@@ -2,7 +2,7 @@ source "http://rubygems.org"
 
 gem 'activesupport', '~> 3'
 gem 'activemodel', '~> 3'
-gem 'activerecord', '~> 3'
+gem 'activerecord', '~> 7', '>= 7.1.5.2'
 gem 'exception_helper'
 
 gem "cassandra", :require => 'cassandra/1.2'
